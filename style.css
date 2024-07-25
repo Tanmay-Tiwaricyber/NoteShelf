@@ -1,0 +1,115 @@
+
+        body {
+            background: linear-gradient(135deg, #1a1a1d, #4e4e50);
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+        .navbar {
+            background: #6200ea;
+        }
+        .tabs .tab a {
+            color: white;
+        }
+        .tabs .tab a.active {
+            background: #03dac6;
+            color: #6200ea;
+        }
+        .card {
+            background: #2b2b2b;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .card h2 {
+            color: #03dac6;
+            font-weight: bold;
+        }
+        .card p {
+            color: #bdbdbd;
+        }
+        .btn {
+            background: #03dac6;
+            color: #1a1a1d;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #6200ea;
+            color: white;
+        }
+        .whats-new {
+            background: #383838;
+            border: 1px solid #03dac6;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 2rem;
+            color: #bdbdbd;
+            animation: slideIn 1s ease-in-out;
+        }
+        footer {
+            background: #1a1a1d;
+            color: #bdbdbd;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: #03dac6;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #6200ea;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        .emoticon {
+            font-size: 1.5rem;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+        .animated-heart {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        .animated-bounce {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+        
