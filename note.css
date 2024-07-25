@@ -46,15 +46,7 @@ body {
     background: #6200ea;
     color: white;
 }
-.whats-new {
-    background: #383838;
-    border: 1px solid #03dac6;
-    border-radius: 10px;
-    padding: 1rem;
-    margin-top: 2rem;
-    color: #bdbdbd;
-    animation: slideIn 1s ease-in-out;
-}
+
 footer {
     background: #1a1a1d;
     color: #bdbdbd;
@@ -116,4 +108,7 @@ footer {
     60% {
         transform: translateY(-15px);
     }
+}
+.tabs.tabs-transparent .indicator {
+    background-color: #fff0;
 }
