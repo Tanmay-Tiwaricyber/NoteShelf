@@ -21,6 +21,44 @@
             text-align: left;
             }
     </style>
+    <style>
+        .search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.search-bar {
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    border: 2px solid #00acc1;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    transition: width 0.4s ease-in-out;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+.search-bar::placeholder {
+    color: #fff;
+}
+.search-bar:focus {
+    width: 400px;
+    background: rgba(255, 255, 255, 0.4);
+}
+.search-results {
+    margin-top: 20px;
+}
+.search-results div {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+    </style>
 </head>
 <body>
     <nav>
@@ -56,6 +94,7 @@
         </div>
     </nav>
     <div class="container">
+        <div id="searchResults" class="search-results"></div>
         <div id="content">
             <!-- Class 1 Content -->
             <div id="class1" class="class-content">
@@ -230,7 +269,7 @@
                             <a href="Biology 2023-24 11/Question answer/Very short Bio Chp 7.pdf" class="btn"><i class="material-icons left">download</i>Very Short Q/A</a>
                             <a href="Biology 2023-24 11/Question answer/Very short Bio Chp 7.pdf" class="btn"><i class="material-icons left">download</i>Short Q/A</a>
                         </div>
-                        <div class="port">
+                        <div>
                             <h3>Chapter 8: Cell the unit of life</h3>
                             <p>Blog post content for Chapter 8:</p>
                             <a href="Biology 2023-24 11/Chp- 8 Living world.pdf" class="btn"><i class="material-icons left">download</i>Download</a>
@@ -422,12 +461,17 @@
                     <h5 class="white-text" style="font-family: Playwrite AT;"><a href="about">NoteShelf</a></h5>
                     <p class="grey-text text-lighten-4" style="font-family: Dancing Script;font-size: 25px">Made with 💖 by MGHacker and Silent Programmer</p>
                 </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Follow Us</h5>
+                <div class="col l4 offset-l2 s12" style="display: flex;">
+                    <h5 class="white-text" >Follow Us</h5>
                     <ul class="social-links">
                         <li><a href="https://www.instagram.com/optimistic__thunder/" class="grey-text text-lighten-3"><i class="fab fa-instagram"></i> Instagram</a></li>
                         <li><a href="https://wa.me/+917800171651" class="grey-text text-lighten-3"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
                         <li><a href="https://hackdevs.netlify.app" class="grey-text text-lighten-3"><i class="fas fa-globe"></i> Website</a></li>
+                    </ul>
+                    <ul class="social-links">
+                        <li><a href="https://www.instagram.com/" class="grey-text text-lighten-3"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://wa.me/+916306256015" class="grey-text text-lighten-3"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                        <li><a href="https://github.com/Tanmay-Tiwaricyber" class="grey-text text-lighten-3"><i class="fas fa-globe"></i> Website</a></li>
                     </ul>
                 </div>
             </div>
