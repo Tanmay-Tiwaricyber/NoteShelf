@@ -523,13 +523,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script>
+        <script>
         document.addEventListener('DOMContentLoaded', function() {
             var classTabs = document.querySelectorAll('#class-nav .tab a');
             var subjectTabs = document.querySelectorAll('#subject-nav .tab a');
             var classContents = document.querySelectorAll('.class-content');
             var subjectContents = document.querySelectorAll('.subject-content');
-
             classTabs.forEach(function(classTab) {
                 classTab.addEventListener('click', function() {
                     var selectedClass = this.getAttribute('href').substring(1);
@@ -538,7 +537,6 @@
                     });
                 });
             });
-
             subjectTabs.forEach(function(subjectTab) {
                 subjectTab.addEventListener('click', function() {
                     var selectedSubject = this.getAttribute('href').substring(1);
@@ -547,41 +545,9 @@
                     });
                 });
             });
-
             // Initialize Materialize tabs
             var tabs = document.querySelectorAll('.tabs');
             M.Tabs.init(tabs);
-
-            // Initialize download counts
-            const downloadCounts = {};
-
-            // Handle download button click event
-            document.querySelectorAll('.btn').forEach(function(button) {
-                button.addEventListener('click', function(event) {
-                    event.preventDefault();
-
-                    const downloadLink = this.getAttribute('href');
-                    const downloadCountElement = this.nextElementSibling.nextElementSibling.querySelector('.count');
-
-                    // Update download count
-                    if (!downloadCounts[downloadLink]) {
-                        downloadCounts[downloadLink] = 0;
-                    }
-                    downloadCounts[downloadLink]++;
-                    downloadCountElement.textContent = downloadCounts[downloadLink];
-
-                    // Show reaction buttons
-                    this.nextElementSibling.style.display = 'block';
-                });
-            });
-
-            // Handle reaction button click event
-            document.querySelectorAll('.reaction').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    const selectedReaction = this.textContent;
-                    alert(`You reacted with: ${selectedReaction}`);
-                });
-            });
         });
     </script>
     
