@@ -13,8 +13,8 @@ Welcome to the Notes Downloader website! This web application allows users to do
 
 ## Preview
 
-![Screenshot](preview/index.png)
-![Screenshot](preview/notes.png)
+![Screenshot](preview/index.png) <br>
+![Screenshot](preview/notes.png) <br>
 ![Screenshot](preview/about.png)
 
 4. **Open the App**:
