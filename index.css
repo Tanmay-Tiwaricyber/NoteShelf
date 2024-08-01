@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     perspective: 1000px;
+    background-image: url(res/bg.jpg);
 }
 
 .nav-wrapper {
@@ -58,7 +59,7 @@ body {
     padding: 15px;
     font-size: 1.2rem;
     background: rgba(0, 0, 0, 0.3);
-    border: none;
+    border: 1px solid #e0e0e000;
     transition: transform 0.3s ease-in-out;
     border-radius: 10px;
     margin-bottom: 10px;
