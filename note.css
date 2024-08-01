@@ -7,6 +7,16 @@ body {
 .navbar {
     background: #6200ea;
 }
+.port-book {
+    background: #2b2b2b;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.829);
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+    background-image: url(res/book-sec.png);
+}
 .port {
     background: #2b2b2b;
     border-radius: 10px;
@@ -16,6 +26,7 @@ body {
     position: relative;
     animation: fadeIn 1s ease-in-out;
 }
+
 .tabs .tab a.active {
     background: #03dac6;
     color: #6200ea;
