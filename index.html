@@ -3,92 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoteShelf</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" href="res/note.png" type="image/x-icon">
+    <title>NoteShelf | 2026 Cyber-Brutalist Edition</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AT:ital,wght@0,100..400;1,100..400&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+AT:ital,wght@0,100..400;1,100..400&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'block': '8px 8px 0px 0px rgba(0,0,0,1)',
+                        'block-hover': '2px 2px 0px 0px rgba(0,0,0,1)',
+                        'block-mobile': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'block-sm': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'block-sm-hover': '0px 0px 0px 0px rgba(0,0,0,1)',
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'blob-drift': 'blob-drift 10s ease-in-out infinite alternate',
+                        'blob-drift-reverse': 'blob-drift-reverse 12s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'blob-drift': {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '100%': { transform: 'translate(30px, -40px) scale(1.1)' },
+                        },
+                        'blob-drift-reverse': {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '100%': { transform: 'translate(-40px, 30px) scale(1.15)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
+    <style>
+        /* Cyber Grain Overlay */
+        .cyber-grain {
+            position: fixed; top: 0; left: 0; height: 100vh; width: 100vw;
+            pointer-events: none; z-index: 9999;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.06"/%3E%3C/svg%3E');
+        }
+
+        ::selection { background-color: #ec4899; color: #fff; }
+        
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+
+        /* Typography outlines for Hero text */
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px #000;
+        }
+        @media (max-width: 640px) {
+            .text-outline { -webkit-text-stroke: 1px #000; }
+        }
+
+        /* Glitch Hover Effect */
+        .glitch-hover:hover {
+            animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+            color: #fff; background: #000;
+        }
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); }
+            20% { transform: skew(-10deg); }
+            40% { transform: skew(10deg); }
+            60% { transform: skew(-5deg); }
+            80% { transform: skew(5deg); }
+            100% { transform: skew(0deg); }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: #fff; border-left: 3px solid #000; }
+        ::-webkit-scrollbar-thumb { background: #000; border-left: 3px solid #000; }
+        ::-webkit-scrollbar-thumb:hover { background: #ec4899; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
-<body>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo center" style="font-family: Playwrite AT;">NoteShelf</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href='index.html'>Home</a></li>
-                <li><a href='notes.html'>Notes</a></li>
-                <li><a href='about.html'>About</a></li>
-            </ul>
+<body class="bg-white text-black font-sans min-h-screen flex flex-col antialiased bg-grid overflow-x-hidden">
+
+    <div class="cyber-grain"></div>
+
+    <nav class="fixed w-full z-50 bg-white border-b-4 border-black top-0 left-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-50 bg-white">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-3 group relative">
+                    <div class="bg-black text-pink-500 p-2 border-2 border-black flex items-center justify-center transition-all duration-300 group-hover:text-yellow-400 group-hover:shadow-block-sm group-hover:-translate-y-1">
+                        <i class="fa-solid fa-book-open text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-black tracking-tighter uppercase text-black group-hover:text-pink-600 transition-colors">Note<span class="text-pink-600 group-hover:text-black transition-colors">Shelf</span></span>
+                </a>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-blue-600 font-black uppercase tracking-widest text-sm border-b-4 border-blue-600 pb-1">Home</a>
+                    <a href="notes.html" class="text-black font-bold uppercase tracking-widest text-sm hover:text-green-600 border-b-4 border-transparent hover:border-green-600 pb-1 transition-all">Notes</a>
+                    <a href="about.html" class="text-black font-bold uppercase tracking-widest text-sm hover:text-purple-600 border-b-4 border-transparent hover:border-purple-600 pb-1 transition-all">About</a>
+                    <a href="notes.html" class="bg-black text-yellow-300 border-2 border-black px-6 py-2.5 font-black uppercase tracking-widest text-sm shadow-block-sm hover:shadow-block-sm-hover hover:translate-x-[4px] hover:translate-y-[4px] hover:bg-yellow-300 hover:text-black transition-all relative overflow-hidden group">
+                        <span class="relative z-10">Get Notes</span>
+                        <div class="absolute inset-0 h-full w-0 bg-white transition-all duration-300 ease-out group-hover:w-full z-0"></div>
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden bg-black text-white p-2 border-2 border-black flex items-center justify-center hover:bg-pink-500 shadow-block-sm active:shadow-block-sm-hover active:translate-y-1 transition-all z-50 relative">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="w-full bg-black text-green-400 py-1.5 flex overflow-hidden whitespace-nowrap border-y-2 border-black relative z-40">
+            <div class="animate-marquee inline-block font-mono text-[10px] font-bold tracking-widest uppercase">
+                SYS.INIT // DATABASE ONLINE // NO ENCRYPTION DETECTED // DOWNLOADING ASSETS // WELCOME TO NOTESHELF // SYS.INIT // DATABASE ONLINE // NO ENCRYPTION DETECTED // DOWNLOADING ASSETS // WELCOME TO NOTESHELF //
+            </div>
+            <div class="animate-marquee inline-block font-mono text-[10px] font-bold tracking-widest uppercase absolute top-1.5 left-full">
+                SYS.INIT // DATABASE ONLINE // NO ENCRYPTION DETECTED // DOWNLOADING ASSETS // WELCOME TO NOTESHELF // SYS.INIT // DATABASE ONLINE // NO ENCRYPTION DETECTED // DOWNLOADING ASSETS // WELCOME TO NOTESHELF //
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden absolute top-[88px] sm:top-[106px] left-0 w-full bg-white border-b-4 border-black shadow-block-mobile flex-col p-6 gap-6 z-30 md:hidden transition-transform duration-300 transform -translate-y-full origin-top">
+            <a href="index.html" class="text-blue-600 font-black uppercase tracking-widest text-lg border-l-4 border-blue-600 pl-4 transition-all">Home</a>
+            <a href="notes.html" class="text-black font-black uppercase tracking-widest text-lg border-l-4 border-transparent hover:border-green-600 pl-4 transition-all">Notes</a>
+            <a href="about.html" class="text-black font-black uppercase tracking-widest text-lg border-l-4 border-transparent hover:border-purple-600 pl-4 transition-all">About</a>
+            <a href="notes.html" class="text-center bg-black text-yellow-300 border-2 border-black px-6 py-4 font-black uppercase tracking-widest text-sm shadow-block-sm active:shadow-block-sm-hover active:translate-y-1 transition-all w-full mt-4">
+                Access Database
+            </a>
         </div>
     </nav>
-    <br><br>
-    <div class="container">
-        <div class="card hoverable futuristic-card">
-            <div class="card-content">
-                <center><img src="res/note.png" alt="" height="100px"></center>
-                <h2>Welcome To NoteShelf</h2>
-                <h3 class="card-title center-align">Download notes for various subjects and chapters <span class="emoticon">📚</span></h3>
-                <div class="center-align">
-                    <a class='btn-large cyan darken-4 animated-bounce' href='notes.html'>Let's GOO <span class="emoticon">🚀</span></a>
-                    <a class='btn-large cyan darken-4 animated-bounce' href='about.html'>About <span class="emoticon">🤖</span></a>
-                </div>
-                <div class="center-align">
-                    
-                </div>
-                <!-- <div class="whats-new section">
-                    <ul>
-                        <a class='btn-large cyan darken-4 animated-bounce' href='updates.html'>Check New Updates <span class="emoticon"></span></a>
-                    </ul>
-                </div> -->
+
+    <main class="flex-grow flex items-center justify-center pt-40 sm:pt-48 md:pt-56 pb-12 sm:pb-16 px-4 sm:px-6 relative w-full overflow-hidden">
+        
+        <div class="absolute top-[20%] left-[5%] sm:left-[10%] w-40 sm:w-64 h-40 sm:h-64 bg-pink-500 rounded-full blur-[60px] sm:blur-[80px] opacity-30 animate-blob-drift"></div>
+        <div class="absolute bottom-[20%] right-[5%] sm:right-[10%] w-48 sm:w-72 h-48 sm:h-72 bg-cyan-500 rounded-full blur-[60px] sm:blur-[80px] opacity-30 animate-blob-drift-reverse"></div>
+
+        <div class="max-w-5xl mx-auto text-center border-4 border-black bg-white p-8 sm:p-12 md:p-20 shadow-block-mobile sm:shadow-block w-full sm:animate-float relative z-10 group">
+            
+            <div class="absolute top-2 left-2 w-4 h-4 border-t-4 border-l-4 border-black"></div>
+            <div class="absolute top-2 right-2 w-4 h-4 border-t-4 border-r-4 border-black"></div>
+            <div class="absolute bottom-2 left-2 w-4 h-4 border-b-4 border-l-4 border-black"></div>
+            <div class="absolute bottom-2 right-2 w-4 h-4 border-b-4 border-r-4 border-black"></div>
+
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-black text-white border-2 border-black mb-8 sm:mb-12 text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(236,72,153,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+                <span class="flex h-2 w-2 sm:h-3 sm:w-3 bg-green-500 rounded-none animate-ping"></span>
+                System Updated // 2026 Protocol
+            </div>
+
+            <h1 class="text-[3rem] sm:text-6xl md:text-[6rem] lg:text-[7.5rem] font-black tracking-tighter text-black mb-6 sm:mb-8 uppercase leading-[0.9] sm:leading-[0.85] flex flex-col items-center justify-center">
+                <span class="text-outline">The Ultimate</span>
+                <span class="bg-black text-yellow-400 px-2 sm:px-6 py-1 sm:py-2 leading-[1.1] sm:leading-[1.1] inline-block mt-3 sm:mt-4 transform sm:-rotate-2 sm:hover:rotate-0 transition-transform duration-300 glitch-hover">Study Hub.</span>
+            </h1>
+
+            <p class="mt-6 sm:mt-10 text-sm sm:text-lg md:text-xl text-slate-800 font-semibold max-w-2xl mx-auto mb-10 sm:mb-14 border-l-4 border-pink-500 pl-4 sm:pl-6 text-left leading-relaxed">
+                Download high-fidelity curated notes for advanced subjects and chapters. 
+                Stop stressing over messy notebooks. <span class="text-pink-600 font-black bg-pink-100 px-1">Execute your learning with precision.</span>
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center mt-6">
+                <a href="notes.html" class="w-full sm:w-auto px-8 sm:px-14 py-4 sm:py-6 bg-black text-white border-4 border-black font-black uppercase tracking-widest text-sm sm:text-xl shadow-block-sm sm:shadow-block hover:shadow-block-sm-hover sm:hover:shadow-block-hover hover:translate-x-[4px] hover:translate-y-[4px] sm:hover:translate-x-[8px] sm:hover:translate-y-[8px] hover:bg-green-400 hover:text-black transition-all flex items-center justify-center gap-3 relative overflow-hidden btn-group">
+                    <i class="fa-solid fa-database text-green-400 btn-group-hover:text-black transition-colors"></i> View Notes
+                    <div class="absolute inset-0 h-full w-0 bg-green-400 transition-all duration-300 ease-out btn-group-hover:w-full z-0"></div>
+                </a>
+                
+                <a href="about.html" class="w-full sm:w-auto px-8 sm:px-14 py-4 sm:py-6 bg-white text-black border-4 border-black font-black uppercase tracking-widest text-sm sm:text-xl shadow-block-sm sm:shadow-block hover:shadow-block-sm-hover sm:hover:shadow-block-hover hover:translate-x-[4px] hover:translate-y-[4px] sm:hover:translate-x-[8px] sm:hover:translate-y-[8px] hover:bg-purple-200 transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-terminal text-purple-600"></i> About NoteShelf
+                    <div class="absolute inset-0 h-full w-0 bg-purple-200 transition-all duration-300 ease-out hover:w-full z-0"></div>
+                </a>
             </div>
         </div>
-    </div>
-    <footer class="page-footer cyan darken-4">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <img src="res/note.png" alt="" height="80px">
-                    <h5 class="white-text" style="font-family: Playwrite AT;">NoteShelf</h5>
-                    <p class="grey-text text-lighten-4" style="font-family: Dancing Script;font-size: 25px">Made with 💖 by MGHacker and Silent Programmer</p>
+    </main>
+
+    <footer class="bg-white border-t-4 border-black text-black pt-12 md:pt-16 mt-auto relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 text-left mb-12 md:mb-16">
+                
+                <div class="space-y-4 md:space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-black text-pink-500 p-2 border-2 border-black hover:bg-pink-500 hover:text-black transition-colors cursor-pointer">
+                            <i class="fa-solid fa-book-open text-xl md:text-2xl"></i>
+                        </div>
+                        <span class="text-2xl md:text-3xl font-black tracking-tighter uppercase text-black">Note<span class="text-pink-600">Shelf</span></span>
+                    </div>
+                    <p class="text-xs md:text-sm font-bold uppercase tracking-widest text-slate-500 leading-relaxed border-l-4 border-slate-300 pl-3">
+                        Engineered with aggression by <br/><span class="text-black">MGHacker</span> & <span class="text-black">Silent Programmer.</span>
+                    </p>
                 </div>
-                <div class="col l4 offset-l2 s12" style="display: flex;">
-                    <h5 class="white-text" >Follow Us </h5>
-                    <ul class="social-links">
-                        <li><a href="https://www.instagram.com/optimistic__thunder/" class="grey-text text-lighten-3"><i class="fab fa-instagram"></i>Instagram</a></li>
-                        <li><a href="https://wa.me/+917800171651" class="grey-text text-lighten-3"><i class="fab fa-whatsapp"></i>WhatsApp</a></li>
-                        <li><a href="https://hackdevs.netlify.app" class="grey-text text-lighten-3"><i class="fas fa-globe"></i>Website</a></li>
+
+                <div class="border-l-4 border-blue-500 pl-4 md:pl-6 bg-slate-50 py-4 pr-4 border-r-2 border-y-2 border-slate-200 shadow-block-sm">
+                    <h4 class="font-black uppercase tracking-widest mb-4 bg-black text-cyan-400 inline-block px-3 py-1 text-xs md:text-sm">SYS.ADMIN // MGHacker</h4>
+                    <ul class="space-y-3 font-bold uppercase text-xs md:text-sm tracking-wide">
+                        <li><a href="https://www.instagram.com/optimistic__thunder/" target="_blank" class="hover:text-pink-600 group flex items-center gap-3 transition-colors w-max"><i class="fa-brands fa-instagram text-lg text-slate-400 group-hover:text-pink-500 transition-colors"></i> Instagram <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-pink-500">-></span></a></li>
+                        <li><a href="https://wa.me/+917800171651" target="_blank" class="hover:text-green-600 group flex items-center gap-3 transition-colors w-max"><i class="fa-brands fa-whatsapp text-lg text-slate-400 group-hover:text-green-500 transition-colors"></i> WhatsApp <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-green-500">-></span></a></li>
+                        <li><a href="https://hackdevs.netlify.app" target="_blank" class="hover:text-blue-600 group flex items-center gap-3 transition-colors w-max"><i class="fa-solid fa-globe text-lg text-slate-400 group-hover:text-blue-500 transition-colors"></i> Terminal_Web <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-blue-500">-></span></a></li>
                     </ul>
-                    <ul class="social-links">
-                        <li><a href="https://www.instagram.com/" class="grey-text text-lighten-3"><i class="fab fa-instagram"></i>Instagram</a></li>
-                        <li><a href="https://wa.me/+916306256015" class="grey-text text-lighten-3"><i class="fab fa-whatsapp"></i>WhatsApp</a></li>
-                        <li><a href="https://github.com/Tanmay-Tiwaricyber" class="grey-text text-lighten-3"><i class="fas fa-globe"></i>Website</a></li>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4 md:pl-6 bg-slate-50 py-4 pr-4 border-r-2 border-y-2 border-slate-200 shadow-block-sm">
+                    <h4 class="font-black uppercase tracking-widest mb-4 bg-black text-purple-400 inline-block px-3 py-1 text-xs md:text-sm">DEV.OPS // Silent Programmer</h4>
+                    <ul class="space-y-3 font-bold uppercase text-xs md:text-sm tracking-wide">
+                        <li><a href="https://www.instagram.com/" target="_blank" class="hover:text-pink-600 group flex items-center gap-3 transition-colors w-max"><i class="fa-brands fa-instagram text-lg text-slate-400 group-hover:text-pink-500 transition-colors"></i> Instagram <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-pink-500">-></span></a></li>
+                        <li><a href="https://wa.me/+916306256015" target="_blank" class="hover:text-green-600 group flex items-center gap-3 transition-colors w-max"><i class="fa-brands fa-whatsapp text-lg text-slate-400 group-hover:text-green-500 transition-colors"></i> WhatsApp <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-green-500">-></span></a></li>
+                        <li><a href="https://github.com/Tanmay-Tiwaricyber" target="_blank" class="hover:text-black group flex items-center gap-3 transition-colors w-max"><i class="fa-brands fa-github text-lg text-slate-400 group-hover:text-black transition-colors"></i> Source_Code <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-black">-></span></a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="footer-3d-effect">
-            <div class="footer-content">
-                &copy; 2024 NoteShelf | Last updated - 01/Aug/2024
+
+        <div class="bg-black text-white border-t-4 border-black py-4 md:py-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center font-bold uppercase text-[10px] md:text-xs tracking-widest text-center sm:text-left gap-3 sm:gap-0">
+                <p>&copy; 2026 <span class="text-pink-500">NoteShelf</span>. All Systems Nominal.</p>
+                <div class="flex items-center gap-2 border-2 border-slate-800 px-3 py-1 bg-slate-900">
+                    <span class="h-2 w-2 rounded-none bg-green-500 animate-pulse"></span>
+                    <p class="text-slate-300 font-mono text-[9px] sm:text-[10px]">Server Ping: <span class="text-green-400">12ms</span></p>
+                </div>
             </div>
         </div>
     </footer>
-   
-    <!-- Materialize JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <!-- 3D Hover JS -->
-    <script src="https://cdn.jsdelivr.net/gh/mciastek/sal@0.8.0/dist/sal.js"></script>
+
     <script>
-        sal();
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            mobileBtn.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('hidden')) {
+                    // Open Menu
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => {
+                        mobileMenu.classList.remove('-translate-y-full');
+                        mobileMenu.classList.add('translate-y-0');
+                    }, 10);
+                    
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-xmark');
+                    mobileBtn.classList.add('bg-pink-500');
+                } else {
+                    // Close Menu
+                    mobileMenu.classList.remove('translate-y-0');
+                    mobileMenu.classList.add('-translate-y-full');
+                    
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                    
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                    mobileBtn.classList.remove('bg-pink-500');
+                }
+            });
+        });
     </script>
 </body>
 </html>
