@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoteShelf | About The System</title>
+    <title>NoteShelf | Database Access</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,33 +22,22 @@
                     },
                     boxShadow: {
                         'block': '8px 8px 0px 0px rgba(0,0,0,1)',
-                        'block-mobile': '4px 4px 0px 0px rgba(0,0,0,1)',
                         'block-hover': '2px 2px 0px 0px rgba(0,0,0,1)',
                         'block-sm': '4px 4px 0px 0px rgba(0,0,0,1)',
                         'block-sm-hover': '0px 0px 0px 0px rgba(0,0,0,1)',
                     },
                     animation: {
                         'marquee': 'marquee 25s linear infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'blob-drift': 'blob-drift 10s ease-in-out infinite alternate',
-                        'blob-drift-reverse': 'blob-drift-reverse 12s ease-in-out infinite alternate',
+                        'fade-in-up': 'fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                     },
                     keyframes: {
                         marquee: {
                             '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(-100%)' },
                         },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        'blob-drift': {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '100%': { transform: 'translate(30px, -40px) scale(1.1)' },
-                        },
-                        'blob-drift-reverse': {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '100%': { transform: 'translate(-40px, 30px) scale(1.15)' },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
@@ -72,37 +61,26 @@
                               linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
         }
 
-        /* Typography outlines for Hero text */
-        .text-outline {
-            color: transparent;
-            -webkit-text-stroke: 2px #000;
-        }
-        @media (max-width: 640px) {
-            .text-outline { -webkit-text-stroke: 1px #000; }
-        }
-
-        /* Glitch Hover Effect */
+        /* Glitch text effect on hover */
         .glitch-hover:hover {
             animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-            color: #fff; background: #000;
         }
         @keyframes glitch-skew {
             0% { transform: skew(0deg); }
-            20% { transform: skew(-10deg); }
-            40% { transform: skew(10deg); }
-            60% { transform: skew(-5deg); }
-            80% { transform: skew(5deg); }
+            20% { transform: skew(-5deg); }
+            40% { transform: skew(5deg); }
+            60% { transform: skew(-2deg); }
+            80% { transform: skew(2deg); }
             100% { transform: skew(0deg); }
         }
         
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #fff; border-left: 2px solid #000; }
         ::-webkit-scrollbar-thumb { background: #000; border-left: 2px solid #000; }
         ::-webkit-scrollbar-thumb:hover { background: #ec4899; }
         
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Search Bar custom placeholder styling */
+        ::-webkit-input-placeholder { color: #94a3b8; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
     </style>
 </head>
 <body class="bg-white text-black font-sans min-h-screen flex flex-col antialiased bg-grid overflow-x-hidden">
@@ -121,12 +99,8 @@
                 
                 <div class="hidden md:flex items-center gap-8">
                     <a href="index.html" class="text-black font-bold uppercase tracking-widest text-sm hover:text-blue-600 border-b-4 border-transparent hover:border-blue-600 pb-1 transition-all">Home</a>
-                    <a href="notes.html" class="text-black font-bold uppercase tracking-widest text-sm hover:text-green-600 border-b-4 border-transparent hover:border-green-600 pb-1 transition-all">Notes</a>
-                    <a href="about.html" class="text-purple-600 font-black uppercase tracking-widest text-sm border-b-4 border-purple-600 pb-1 transition-all">About</a>
-                    <a href="notes.html" class="bg-black text-yellow-300 border-2 border-black px-6 py-2.5 font-black uppercase tracking-widest text-sm shadow-block-sm hover:shadow-block-sm-hover hover:translate-x-[4px] hover:translate-y-[4px] hover:bg-yellow-300 hover:text-black transition-all relative overflow-hidden group">
-                        <span class="relative z-10">Get Notes</span>
-                        <div class="absolute inset-0 h-full w-0 bg-white transition-all duration-300 ease-out group-hover:w-full z-0"></div>
-                    </a>
+                    <a href="notes.html" class="text-green-600 font-black uppercase tracking-widest text-sm border-b-4 border-green-600 pb-1 transition-all">Notes</a>
+                    <a href="about.html" class="text-black font-bold uppercase tracking-widest text-sm hover:text-purple-600 border-b-4 border-transparent hover:border-purple-600 pb-1 transition-all">About</a>
                 </div>
 
                 <button id="mobile-menu-btn" class="md:hidden bg-black text-white p-2 border-2 border-black flex items-center justify-center hover:bg-pink-500 shadow-block-sm active:shadow-block-sm-hover active:translate-y-1 transition-all z-50 relative">
@@ -137,140 +111,202 @@
 
         <div class="w-full bg-black text-green-400 py-1.5 flex overflow-hidden whitespace-nowrap border-y-2 border-black relative z-40">
             <div class="animate-marquee inline-block font-mono text-[10px] font-bold tracking-widest uppercase">
-                SYS.INFO // ARCHITECTURE DECODED // IDENTIFYING AUTHORS // MGHACKER & SILENT PROGRAMMER // SYS.INFO // ARCHITECTURE DECODED // IDENTIFYING AUTHORS // MGHACKER & SILENT PROGRAMMER //
+                SYS.INIT // SECURE CONNECTION ESTABLISHED // ACCESSING MAINFRAME // ROOT PRIVILEGES GRANTED // SYS.INIT // SECURE CONNECTION ESTABLISHED // ACCESSING MAINFRAME // ROOT PRIVILEGES GRANTED //
             </div>
             <div class="animate-marquee inline-block font-mono text-[10px] font-bold tracking-widest uppercase absolute top-1.5 left-full">
-                SYS.INFO // ARCHITECTURE DECODED // IDENTIFYING AUTHORS // MGHACKER & SILENT PROGRAMMER // SYS.INFO // ARCHITECTURE DECODED // IDENTIFYING AUTHORS // MGHACKER & SILENT PROGRAMMER //
+                SYS.INIT // SECURE CONNECTION ESTABLISHED // ACCESSING MAINFRAME // ROOT PRIVILEGES GRANTED // SYS.INIT // SECURE CONNECTION ESTABLISHED // ACCESSING MAINFRAME // ROOT PRIVILEGES GRANTED //
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden absolute top-[88px] sm:top-[106px] left-0 w-full bg-white border-b-4 border-black shadow-block-mobile flex-col p-6 gap-6 z-30 md:hidden transition-transform duration-300 transform -translate-y-full origin-top">
+        <div id="mobile-menu" class="hidden absolute top-[88px] sm:top-[106px] left-0 w-full bg-white border-b-4 border-black shadow-block flex-col p-6 gap-6 z-30 md:hidden transition-transform duration-300 transform -translate-y-full origin-top">
             <a href="index.html" class="text-black font-black uppercase tracking-widest text-lg border-l-4 border-transparent hover:border-blue-600 pl-4 transition-all">Home</a>
-            <a href="notes.html" class="text-black font-black uppercase tracking-widest text-lg border-l-4 border-transparent hover:border-green-600 pl-4 transition-all">Notes</a>
-            <a href="about.html" class="text-purple-600 font-black uppercase tracking-widest text-lg border-l-4 border-purple-600 pl-4 transition-all">About</a>
-            <a href="notes.html" class="text-center bg-black text-yellow-300 border-2 border-black px-6 py-4 font-black uppercase tracking-widest text-sm shadow-block-sm active:shadow-block-sm-hover active:translate-y-1 transition-all w-full mt-4">
-                Access Database
-            </a>
+            <a href="notes.html" class="text-green-600 font-black uppercase tracking-widest text-lg border-l-4 border-green-600 pl-4 transition-all">Notes</a>
+            <a href="about.html" class="text-black font-black uppercase tracking-widest text-lg border-l-4 border-transparent hover:border-purple-600 pl-4 transition-all">About</a>
         </div>
     </nav>
 
-    <main class="flex-grow pt-40 sm:pt-48 md:pt-52 pb-16 px-4 sm:px-6 relative z-10 max-w-6xl mx-auto w-full">
+    <main class="flex-grow flex flex-col pt-36 md:pt-48 pb-16 px-4 sm:px-6 relative z-10 w-full max-w-7xl mx-auto min-h-[70vh]">
         
-        <div class="absolute top-[10%] left-[-5%] w-40 sm:w-64 h-40 sm:h-64 bg-pink-500 rounded-full blur-[60px] sm:blur-[80px] opacity-20 animate-blob-drift z-0 pointer-events-none"></div>
-        <div class="absolute bottom-[30%] right-[-5%] w-48 sm:w-72 h-48 sm:h-72 bg-cyan-500 rounded-full blur-[60px] sm:blur-[80px] opacity-20 animate-blob-drift-reverse z-0 pointer-events-none"></div>
-
-        <div class="border-4 border-black bg-white p-6 sm:p-8 md:p-16 shadow-block-mobile sm:shadow-block mb-12 sm:mb-16 relative z-10">
-            
-            <div class="absolute top-2 left-2 w-4 h-4 border-t-4 border-l-4 border-black hidden sm:block"></div>
-            <div class="absolute top-2 right-2 w-4 h-4 border-t-4 border-r-4 border-black hidden sm:block"></div>
-            
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-black text-white border-2 border-black mb-6 sm:mb-8 text-[10px] sm:text-xs font-bold uppercase tracking-widest">
-                <span class="flex h-2 w-2 sm:h-3 sm:w-3 bg-purple-500 animate-pulse"></span>
-                System Log // About_Us
+        <div id="view-exam" class="flex flex-col items-center justify-center w-full animate-fade-in-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-black text-white border-2 border-black mb-6 text-[10px] font-bold uppercase tracking-widest shadow-block-sm">
+                <span class="flex h-2 w-2 bg-pink-500 rounded-none animate-pulse"></span> STEP 1: PROTOCOL
             </div>
+            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12 text-center">Select <span class="bg-black text-yellow-400 px-3 py-1 inline-block transform -rotate-1 glitch-hover cursor-pointer">Exam Type</span></h1>
             
-            <h1 class="text-[3rem] sm:text-5xl md:text-[5.5rem] lg:text-[6.5rem] font-black tracking-tighter text-black mb-6 sm:mb-8 uppercase leading-[0.9] sm:leading-[0.85]">
-                <span class="text-outline">Decoding The</span> <br/>
-                <span class="bg-black text-pink-500 px-3 sm:px-6 py-1 sm:py-2 mt-3 sm:mt-4 inline-block glitch-hover transform sm:-rotate-1 sm:hover:rotate-0 transition-transform duration-300">Architecture.</span>
-            </h1>
-            
-            <p class="text-sm sm:text-lg md:text-xl font-semibold max-w-3xl border-l-2 sm:border-l-4 border-yellow-400 pl-4 sm:pl-6 mt-6 sm:mt-8 text-slate-800 leading-relaxed">
-                NoteShelf was engineered to bridge the gap between chaotic study sessions and streamlined brilliance. We compile, curate, and deploy high-grade educational resources so you can bypass the noise and <span class="text-blue-600 font-black bg-blue-50 px-1">execute your goals with precision.</span>
-            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-4xl">
+                <button onclick="selectExam('cuet')" class="group relative bg-white border-4 border-black p-8 md:p-12 shadow-block hover:shadow-block-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all text-left overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-cyan-400 border-l-4 border-b-4 border-black transform translate-x-full -translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 transition-transform flex items-center justify-center">
+                        <i class="fa-solid fa-arrow-right text-black text-xl"></i>
+                    </div>
+                    <i class="fa-solid fa-graduation-cap text-4xl md:text-5xl text-cyan-400 mb-6 border-2 border-black p-3 bg-black"></i>
+                    <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight mb-2 group-hover:text-cyan-600 transition-colors">CUET</h2>
+                    <p class="font-bold text-slate-500 uppercase tracking-widest text-sm">Central University Entrance Test</p>
+                </button>
+
+                <button onclick="selectExam('nda')" class="group relative bg-white border-4 border-black p-8 md:p-12 shadow-block hover:shadow-block-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all text-left overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-purple-400 border-l-4 border-b-4 border-black transform translate-x-full -translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 transition-transform flex items-center justify-center">
+                        <i class="fa-solid fa-arrow-right text-black text-xl"></i>
+                    </div>
+                    <i class="fa-solid fa-shield text-4xl md:text-5xl text-purple-400 mb-6 border-2 border-black p-3 bg-black"></i>
+                    <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight mb-2 group-hover:text-purple-600 transition-colors">NDA</h2>
+                    <p class="font-bold text-slate-500 uppercase tracking-widest text-sm">National Defence Academy</p>
+                </button>
+
+                <button onclick="selectExam('school')" class="group relative bg-white border-4 border-black p-8 md:p-12 shadow-block hover:shadow-block-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all text-left overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-green-400 border-l-4 border-b-4 border-black transform translate-x-full -translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 transition-transform flex items-center justify-center">
+                        <i class="fa-solid fa-arrow-right text-black text-xl"></i>
+                    </div>
+                    <i class="fa-solid fa-school text-4xl md:text-5xl text-green-400 mb-6 border-2 border-black p-3 bg-black"></i>
+                    <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight mb-2 group-hover:text-green-600 transition-colors">School</h2>
+                    <p class="font-bold text-slate-500 uppercase tracking-widest text-sm">Academic Curriculum</p>
+                </button>
+            </div>
         </div>
 
-        <h2 class="text-2xl sm:text-3xl font-black uppercase tracking-tighter mb-6 sm:mb-8 bg-black text-white inline-block px-4 py-2 relative z-10 shadow-[4px_4px_0px_0px_rgba(236,72,153,1)]">System Architects //</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16 relative z-10">
-            
-            <div class="border-4 border-black bg-white shadow-block-sm sm:shadow-block hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] sm:hover:translate-x-[8px] sm:hover:translate-y-[8px] transition-all flex flex-col group">
-                <div class="bg-black p-4 border-b-4 border-black flex justify-between items-center group-hover:bg-cyan-900 transition-colors">
-                    <h3 class="text-cyan-400 font-black uppercase tracking-widest text-lg sm:text-xl group-hover:text-cyan-300">MGHacker</h3>
-                    <span class="bg-cyan-400 text-black text-[10px] sm:text-xs font-bold px-2 py-1 uppercase shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">Sys.Admin</span>
-                </div>
-                <div class="p-6 sm:p-8 flex-grow bg-[url('data:image/svg+xml;utf8,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle cx=\'2\' cy=\'2\' r=\'1\' fill=\'rgba(0,0,0,0.05)\'/%3E%3C/svg%3E')]">
-                    <p class="text-sm sm:text-base font-semibold text-slate-700 mb-6 border-l-4 border-cyan-400 pl-4 bg-white/80">
-                        Lead systems operator and infrastructure architect. Focused on backend stability, data curation, and ensuring the NoteShelf servers never drop a packet.
-                    </p>
-                    <ul class="space-y-4 font-bold uppercase text-xs sm:text-sm tracking-wide mt-auto">
-                        <li><a href="https://www.instagram.com/optimistic__thunder/" target="_blank" class="hover:text-pink-600 flex items-center gap-3 transition-colors w-max hover:translate-x-1 duration-300"><i class="fa-brands fa-instagram text-lg sm:text-xl text-pink-500"></i> Instagram_Link <span class="text-slate-300">-></span></a></li>
-                        <li><a href="https://wa.me/+917800171651" target="_blank" class="hover:text-green-600 flex items-center gap-3 transition-colors w-max hover:translate-x-1 duration-300"><i class="fa-brands fa-whatsapp text-lg sm:text-xl text-green-500"></i> Secure_Comms <span class="text-slate-300">-></span></a></li>
-                        <li><a href="https://hackdevs.netlify.app" target="_blank" class="hover:text-blue-600 flex items-center gap-3 transition-colors w-max hover:translate-x-1 duration-300"><i class="fa-solid fa-globe text-lg sm:text-xl text-blue-500"></i> Main_Terminal <span class="text-slate-300">-></span></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="border-4 border-black bg-white shadow-block-sm sm:shadow-block hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] sm:hover:translate-x-[8px] sm:hover:translate-y-[8px] transition-all flex flex-col group">
-                <div class="bg-black p-4 border-b-4 border-black flex justify-between items-center group-hover:bg-purple-900 transition-colors">
-                    <h3 class="text-purple-400 font-black uppercase tracking-widest text-lg sm:text-xl group-hover:text-purple-300">Silent Prog</h3>
-                    <span class="bg-purple-400 text-black text-[10px] sm:text-xs font-bold px-2 py-1 uppercase shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">Dev.Ops</span>
-                </div>
-                <div class="p-6 sm:p-8 flex-grow bg-[url('data:image/svg+xml;utf8,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle cx=\'2\' cy=\'2\' r=\'1\' fill=\'rgba(0,0,0,0.05)\'/%3E%3C/svg%3E')]">
-                    <p class="text-sm sm:text-base font-semibold text-slate-700 mb-6 border-l-4 border-purple-400 pl-4 bg-white/80">
-                        Frontend execution and UI/UX specialist. Writing clean logic, compiling assets, and translating raw data into an aggressive, highly optimized user experience.
-                    </p>
-                    <ul class="space-y-4 font-bold uppercase text-xs sm:text-sm tracking-wide mt-auto">
-                        <li><a href="https://www.instagram.com/" target="_blank" class="hover:text-pink-600 flex items-center gap-3 transition-colors w-max hover:translate-x-1 duration-300"><i class="fa-brands fa-instagram text-lg sm:text-xl text-pink-500"></i> Instagram_Link <span class="text-slate-300">-></span></a></li>
-                        <li><a href="https://wa.me/+916306256015" target="_blank" class="hover:text-green-600 flex items-center gap-3 transition-colors w-max hover:translate-x-1 duration-300"><i class="fa-brands fa-whatsapp text-lg sm:text-xl text-green-500"></i> Secure_Comms <span class="text-slate-300">-></span></a></li>
-                        <li><a href="https://github.com/Tanmay-Tiwaricyber" target="_blank" class="hover:text-black flex items-center gap-3 transition-colors w-max hover:translate-x-1 duration-300"><i class="fa-brands fa-github text-lg sm:text-xl text-slate-800"></i> Source_Code <span class="text-slate-300">-></span></a></li>
-                    </ul>
+        <div id="view-class" class="hidden flex flex-col items-center justify-center w-full">
+            <div class="w-full max-w-5xl flex flex-col md:flex-row justify-between items-start md:items-center mb-8 md:mb-12 gap-4 border-4 border-black bg-white p-4 shadow-block-sm">
+                <button onclick="goBackToExam()" class="bg-black text-white border-2 border-black px-4 py-2 font-black uppercase tracking-widest text-xs hover:bg-pink-500 hover:text-black transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <div class="flex items-center gap-3">
+                    <span class="text-sm font-bold uppercase tracking-widest text-slate-500 hidden md:block">Current Protocol:</span>
+                    <h2 class="text-xl md:text-2xl font-black uppercase tracking-tighter bg-black text-yellow-400 px-4 py-1 border-2 border-black">
+                        <span id="display-exam-class"></span>
+                    </h2>
                 </div>
             </div>
 
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-black text-white border-2 border-black mb-6 text-[10px] font-bold uppercase tracking-widest shadow-block-sm">
+                <span class="flex h-2 w-2 bg-cyan-400 rounded-none animate-pulse"></span> STEP 2: MATRIX
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12 text-center">Select <span class="bg-black text-yellow-400 px-3 py-1 inline-block transform -rotate-1 glitch-hover cursor-pointer">Class Level</span></h1>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl">
+                <button onclick="selectClass('11')" class="group relative bg-white border-4 border-black p-8 md:p-12 shadow-block hover:shadow-block-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all text-left overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-cyan-400 border-l-4 border-b-4 border-black transform translate-x-full -translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 transition-transform flex items-center justify-center">
+                        <i class="fa-solid fa-arrow-right text-black text-xl"></i>
+                    </div>
+                    <i class="fa-solid fa-layer-group text-4xl md:text-5xl text-cyan-400 mb-6 border-2 border-black p-3 bg-black"></i>
+                    <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight mb-2 group-hover:text-cyan-600 transition-colors">Class 11</h2>
+                    <p class="font-bold text-slate-500 uppercase tracking-widest text-sm">Initialize Standard Matrix</p>
+                </button>
+
+                <button onclick="selectClass('12')" class="group relative bg-white border-4 border-black p-8 md:p-12 shadow-block hover:shadow-block-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all text-left overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-purple-400 border-l-4 border-b-4 border-black transform translate-x-full -translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 transition-transform flex items-center justify-center">
+                        <i class="fa-solid fa-arrow-right text-black text-xl"></i>
+                    </div>
+                    <i class="fa-solid fa-graduation-cap text-4xl md:text-5xl text-purple-400 mb-6 border-2 border-black p-3 bg-black"></i>
+                    <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight mb-2 group-hover:text-purple-600 transition-colors">Class 12</h2>
+                    <p class="font-bold text-slate-500 uppercase tracking-widest text-sm">Initialize Advanced Matrix</p>
+                </button>
+            </div>
         </div>
 
-        <div class="bg-yellow-400 border-4 border-black p-6 sm:p-8 flex flex-col md:flex-row justify-between items-center shadow-block-mobile sm:shadow-block relative z-10">
-            <h2 class="text-2xl sm:text-3xl font-black uppercase tracking-tighter text-black mb-4 md:mb-0 text-center md:text-left">
-                Ready to Initialize?
-            </h2>
-            <a href="notes.html" class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-black text-white border-2 border-black font-black uppercase tracking-widest text-sm shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] hover:bg-white hover:text-black hover:border-black transition-all flex items-center justify-center gap-3">
-                Access Database <i class="fa-solid fa-database text-pink-500"></i>
-            </a>
+        <div id="view-subject" class="hidden flex-col items-center w-full">
+            
+            <div class="w-full max-w-5xl flex flex-col md:flex-row justify-between items-start md:items-center mb-8 md:mb-12 gap-4 border-4 border-black bg-white p-4 shadow-block-sm">
+                <button onclick="goBackToClass()" class="bg-black text-white border-2 border-black px-4 py-2 font-black uppercase tracking-widest text-xs hover:bg-pink-500 hover:text-black transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-left"></i> Abort
+                </button>
+                <div class="flex items-center gap-3">
+                    <span class="text-sm font-bold uppercase tracking-widest text-slate-500 hidden md:block">Current Node:</span>
+                    <h2 class="text-xl md:text-2xl font-black uppercase tracking-tighter bg-black text-yellow-400 px-4 py-1 border-2 border-black">
+                        <span id="display-exam"></span>Class <span id="display-class-id"></span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-black text-white border-2 border-black mb-6 text-[10px] font-bold uppercase tracking-widest shadow-block-sm">
+                <span class="flex h-2 w-2 bg-purple-400 rounded-none animate-pulse"></span> STEP 3: DIRECTIVE
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-10 text-center">Select Subject</h1>
+
+            <div class="w-full mb-8 relative group max-w-5xl mx-auto shadow-block-sm focus-within:shadow-none focus-within:translate-x-[4px] focus-within:translate-y-[4px] transition-all">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <i class="fa-solid fa-magnifying-glass text-black text-lg"></i>
+                </div>
+                <input type="text" id="subject-search" placeholder="Search Subjects..." class="w-full border-4 border-black bg-white py-4 pl-12 pr-4 font-black uppercase tracking-widest text-sm focus:outline-none focus:ring-0 placeholder-slate-400">
+                <div class="absolute bottom-0 left-0 w-0 h-1 bg-pink-500 group-focus-within:w-full transition-all duration-500"></div>
+            </div>
+
+            <div id="subject-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 w-full max-w-5xl"></div>
         </div>
 
+        <div id="view-content" class="hidden flex-col items-center w-full">
+            
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-black text-white border-2 border-black mb-6 text-[10px] font-bold uppercase tracking-widest shadow-block-sm">
+                <span class="flex h-2 w-2 bg-green-400 rounded-none animate-pulse"></span> STEP 4: ACCESS
+            </div>
+
+            <div class="w-full flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4 border-4 border-black bg-white p-4 shadow-block-sm">
+                <button onclick="goBackToSubject()" class="bg-black text-white border-2 border-black px-4 py-2 font-black uppercase tracking-widest text-xs hover:bg-cyan-400 hover:text-black transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <div class="flex items-center gap-2 font-black uppercase tracking-tighter text-sm md:text-xl">
+                    <span class="text-slate-400"><span id="header-exam"></span>Class <span id="header-class"></span></span>
+                    <i class="fa-solid fa-caret-right text-pink-500"></i>
+                    <span class="bg-black text-green-400 px-3 py-1 border-2 border-black" id="header-subject"></span>
+                </div>
+            </div>
+
+            <div class="w-full mb-8 relative group max-w-4xl mx-auto shadow-block-sm focus-within:shadow-none focus-within:translate-x-[4px] focus-within:translate-y-[4px] transition-all">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <i class="fa-solid fa-magnifying-glass text-black text-lg"></i>
+                </div>
+                <input type="text" id="chapter-search" placeholder="Search Chapters..." class="w-full border-4 border-black bg-white py-4 pl-12 pr-4 font-black uppercase tracking-widest text-sm focus:outline-none focus:ring-0 placeholder-slate-400">
+                <div class="absolute bottom-0 left-0 w-0 h-1 bg-pink-500 group-focus-within:w-full transition-all duration-500"></div>
+            </div>
+
+            <div id="content-grid" class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            
+            <div id="empty-state" class="hidden w-full border-4 border-dashed border-slate-300 bg-slate-50 p-16 text-center shadow-none flex flex-col items-center justify-center mt-4">
+                <i class="fa-solid fa-triangle-exclamation text-5xl mb-6 text-slate-300"></i>
+                <h2 class="text-2xl font-black uppercase tracking-tight text-slate-800" id="empty-title">404 // File Not Found</h2>
+                <p class="font-bold text-slate-500 mt-2 tracking-widest uppercase text-xs md:text-sm" id="empty-desc">Database compilation in progress for this matrix.</p>
+            </div>
+        </div>
     </main>
 
     <footer class="bg-white border-t-4 border-black text-black pt-12 md:pt-16 mt-auto relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 text-left mb-12 md:mb-16">
-                
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-left mb-12 md:mb-16">
                 <div class="space-y-4 md:space-y-6">
-                    <div class="flex items-center gap-2 sm:gap-3">
-                        <div class="bg-black text-pink-500 p-1.5 sm:p-2 border-2 border-black hover:bg-pink-500 hover:text-black transition-colors cursor-pointer">
-                            <i class="fa-solid fa-book-open text-lg sm:text-xl"></i>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-black text-pink-500 p-2 border-2 border-black hover:bg-pink-500 hover:text-black transition-colors cursor-pointer">
+                            <i class="fa-solid fa-book-open text-xl md:text-2xl"></i>
                         </div>
-                        <span class="text-xl sm:text-2xl md:text-3xl font-black tracking-tighter uppercase text-black">Note<span class="text-pink-600">Shelf</span></span>
+                        <span class="text-2xl md:text-3xl font-black tracking-tighter uppercase text-black">Note<span class="text-pink-600">Shelf</span></span>
                     </div>
-                    <p class="text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-widest text-slate-500 leading-relaxed border-l-2 sm:border-l-4 border-slate-300 pl-3">
+                    <p class="text-xs md:text-sm font-bold uppercase tracking-widest text-slate-500 leading-relaxed border-l-4 border-slate-300 pl-3">
                         Engineered with aggression by <br/><span class="text-black">MGHacker</span> & <span class="text-black">Silent Programmer.</span>
                     </p>
                 </div>
 
-                <div class="border-l-4 border-blue-500 pl-3 sm:pl-4 md:pl-6 bg-slate-50 py-3 sm:py-4 pr-3 sm:pr-4 border-r-2 border-y-2 border-slate-200 shadow-block-sm">
-                    <h4 class="font-black uppercase tracking-widest mb-3 sm:mb-4 bg-black text-cyan-400 inline-block px-2 sm:px-3 py-1 text-[10px] sm:text-xs md:text-sm">SYS.ADMIN // MGHacker</h4>
-                    <ul class="space-y-2 sm:space-y-3 font-bold uppercase text-[10px] sm:text-xs md:text-sm tracking-wide">
-                        <li><a href="https://www.instagram.com/optimistic__thunder/" target="_blank" class="hover:text-pink-600 group flex items-center gap-2 sm:gap-3 transition-colors w-max"><i class="fa-brands fa-instagram text-base sm:text-lg text-slate-400 group-hover:text-pink-500 transition-colors"></i> Instagram <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-pink-500">-></span></a></li>
-                        <li><a href="https://wa.me/+917800171651" target="_blank" class="hover:text-green-600 group flex items-center gap-2 sm:gap-3 transition-colors w-max"><i class="fa-brands fa-whatsapp text-base sm:text-lg text-slate-400 group-hover:text-green-500 transition-colors"></i> WhatsApp <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-green-500">-></span></a></li>
-                        <li><a href="https://hackdevs.netlify.app" target="_blank" class="hover:text-blue-600 group flex items-center gap-2 sm:gap-3 transition-colors w-max"><i class="fa-solid fa-globe text-base sm:text-lg text-slate-400 group-hover:text-blue-500 transition-colors"></i> Terminal_Web <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-blue-500">-></span></a></li>
+                <div class="border-l-4 border-blue-500 pl-4 md:pl-6 bg-slate-50 py-4 pr-4 border-r-2 border-y-2 border-slate-200 shadow-block-sm">
+                    <h4 class="font-black uppercase tracking-widest mb-4 bg-black text-cyan-400 inline-block px-3 py-1 text-xs md:text-sm">SYS.ADMIN // MGHacker</h4>
+                    <ul class="space-y-3 font-bold uppercase text-xs md:text-sm tracking-wide">
+                        <li><a href="https://www.instagram.com/optimistic__thunder/" target="_blank" class="hover:text-pink-600 group flex items-center gap-3 transition-colors w-max"><i class="fa-brands fa-instagram text-lg text-slate-400 group-hover:text-pink-500 transition-colors"></i> Instagram</a></li>
+                        <li><a href="https://wa.me/+917800171651" target="_blank" class="hover:text-green-600 group flex items-center gap-3 transition-colors w-max"><i class="fa-brands fa-whatsapp text-lg text-slate-400 group-hover:text-green-500 transition-colors"></i> WhatsApp</a></li>
+                        <li><a href="https://hackdevs.netlify.app" target="_blank" class="hover:text-blue-600 group flex items-center gap-3 transition-colors w-max"><i class="fa-solid fa-globe text-lg text-slate-400 group-hover:text-blue-500 transition-colors"></i> Website</a></li>
                     </ul>
                 </div>
 
-                <div class="border-l-4 border-purple-500 pl-3 sm:pl-4 md:pl-6 bg-slate-50 py-3 sm:py-4 pr-3 sm:pr-4 border-r-2 border-y-2 border-slate-200 shadow-block-sm">
-                    <h4 class="font-black uppercase tracking-widest mb-3 sm:mb-4 bg-black text-purple-400 inline-block px-2 sm:px-3 py-1 text-[10px] sm:text-xs md:text-sm">DEV.OPS // Silent Programmer</h4>
-                    <ul class="space-y-2 sm:space-y-3 font-bold uppercase text-[10px] sm:text-xs md:text-sm tracking-wide">
-                        <li><a href="https://www.instagram.com/" target="_blank" class="hover:text-pink-600 group flex items-center gap-2 sm:gap-3 transition-colors w-max"><i class="fa-brands fa-instagram text-base sm:text-lg text-slate-400 group-hover:text-pink-500 transition-colors"></i> Instagram <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-pink-500">-></span></a></li>
-                        <li><a href="https://wa.me/+916306256015" target="_blank" class="hover:text-green-600 group flex items-center gap-2 sm:gap-3 transition-colors w-max"><i class="fa-brands fa-whatsapp text-base sm:text-lg text-slate-400 group-hover:text-green-500 transition-colors"></i> WhatsApp <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-green-500">-></span></a></li>
-                        <li><a href="https://github.com/Tanmay-Tiwaricyber" target="_blank" class="hover:text-black group flex items-center gap-2 sm:gap-3 transition-colors w-max"><i class="fa-brands fa-github text-base sm:text-lg text-slate-400 group-hover:text-black transition-colors"></i> Source_Code <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-black">-></span></a></li>
+                <div class="border-l-4 border-purple-500 pl-4 md:pl-6 bg-slate-50 py-4 pr-4 border-r-2 border-y-2 border-slate-200 shadow-block-sm">
+                    <h4 class="font-black uppercase tracking-widest mb-4 bg-black text-purple-400 inline-block px-3 py-1 text-xs md:text-sm">DEV.OPS // Silent Programmer</h4>
+                    <ul class="space-y-3 font-bold uppercase text-xs md:text-sm tracking-wide">
+                        <li><a href="https://www.instagram.com/" target="_blank" class="hover:text-pink-600 group flex items-center gap-3 transition-colors w-max"><i class="fa-brands fa-instagram text-lg text-slate-400 group-hover:text-pink-500 transition-colors"></i> Instagram</a></li>
+                        <li><a href="https://wa.me/+916306256015" target="_blank" class="hover:text-green-600 group flex items-center gap-3 transition-colors w-max"><i class="fa-brands fa-whatsapp text-lg text-slate-400 group-hover:text-green-500 transition-colors"></i> WhatsApp</a></li>
+                        <li><a href="https://github.com/Tanmay-Tiwaricyber" target="_blank" class="hover:text-black group flex items-center gap-3 transition-colors w-max"><i class="fa-brands fa-github text-lg text-slate-400 group-hover:text-black transition-colors"></i> Source_Code</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="bg-black text-white border-t-4 border-black py-4 md:py-6">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center font-bold uppercase text-[9px] sm:text-[10px] md:text-xs tracking-widest text-center sm:text-left gap-2 sm:gap-0">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center font-bold uppercase text-[10px] md:text-xs tracking-widest text-center sm:text-left gap-3 sm:gap-0">
                 <p>&copy; 2026 <span class="text-pink-500">NoteShelf</span>. All Systems Nominal.</p>
                 <div class="flex items-center gap-2 border-2 border-slate-800 px-3 py-1 bg-slate-900 mt-2 sm:mt-0">
-                    <span class="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-none bg-green-500 animate-pulse"></span>
+                    <span class="h-2 w-2 rounded-none bg-green-500 animate-pulse"></span>
                     <p class="text-slate-300 font-mono text-[9px] sm:text-[10px]">Server Ping: <span class="text-green-400">12ms</span></p>
                 </div>
             </div>
@@ -278,6 +314,292 @@
     </footer>
 
     <script>
+        // State
+        let currentClass = null;
+        let currentSubject = null;
+        let currentExam = null;
+
+        // View Containers
+        const viewExam = document.getElementById('view-exam');
+        const viewClass = document.getElementById('view-class');
+        const viewSubject = document.getElementById('view-subject');
+        const viewContent = document.getElementById('view-content');
+
+        // Dynamic Elements
+        const displayClassId = document.getElementById('display-class-id');
+        const displayExam = document.getElementById('display-exam');
+        const displayExamClass = document.getElementById('display-exam-class');
+        const headerClass = document.getElementById('header-class');
+        const headerExam = document.getElementById('header-exam');
+        const headerSubject = document.getElementById('header-subject');
+        let contentItems = document.querySelectorAll('.content-item');
+        
+        // Empty State & Search Elements
+        const emptyState = document.getElementById('empty-state');
+        const emptyTitle = document.getElementById('empty-title');
+        const emptyDesc = document.getElementById('empty-desc');
+        const searchInput = document.getElementById('chapter-search');
+        const subjectSearch = document.getElementById('subject-search');
+
+        const subjectGrid = document.getElementById('subject-grid');
+        let allSubjects = []; // Store subjects for search filtering
+
+        // Helpers
+        function hideAllViews() {
+            viewExam.classList.add('hidden');
+            viewExam.classList.remove('flex');
+            
+            viewClass.classList.add('hidden');
+            viewClass.classList.remove('flex');
+            
+            viewSubject.classList.add('hidden');
+            viewSubject.classList.remove('flex');
+            
+            viewContent.classList.add('hidden');
+            viewContent.classList.remove('flex');
+        }
+
+        async function loadJSON(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Network response was not ok');
+                return await response.json();
+            } catch (error) {
+                console.error('Error loading JSON:', error);
+                return { subjects: [], chapters: [] };
+            }
+        }
+
+        // Triggered by Exam Buttons
+        function selectExam(examId) {
+            currentExam = examId;
+            if (examId === 'school') {
+                displayExamClass.innerText = 'SCHOOL';
+                hideAllViews();
+                viewClass.classList.remove('hidden');
+                viewClass.classList.add('flex');
+            } else {
+                currentClass = '11'; // Assume Class 11 for CUET and NDA
+                displayExam.innerText = examId.toUpperCase() + ' ';
+                displayClassId.innerText = '11';
+                headerExam.innerText = examId.toUpperCase() + ' ';
+                
+                viewSubject.classList.remove('animate-fade-in-up');
+                void viewSubject.offsetWidth; // trigger reflow
+                viewSubject.classList.add('animate-fade-in-up');
+
+                hideAllViews();
+                viewSubject.classList.remove('hidden');
+                viewSubject.classList.add('flex');
+                
+                subjectSearch.value = '';
+                loadSubjects();
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        async function loadSubjects() {
+            const subjectsData = await loadJSON(`${currentExam}_${currentClass}_subjects.json`);
+            allSubjects = subjectsData.subjects || [];
+            renderSubjects(allSubjects);
+        }
+
+        function renderSubjects(subjects) {
+            subjectGrid.innerHTML = '';
+            subjects.forEach(subject => {
+                const button = document.createElement('button');
+                button.className = 'group bg-white border-4 border-black p-6 shadow-block-sm hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex flex-col items-center justify-center text-center gap-3';
+                button.onclick = () => selectSubject(subject.id);
+                button.innerHTML = `
+                    <i class="fa-solid ${subject.icon} text-4xl ${subject.color} group-hover:scale-110 transition-transform"></i>
+                    <span class="font-black uppercase tracking-widest text-sm mt-2">${subject.name}</span>
+                `;
+                subjectGrid.appendChild(button);
+            });
+        }
+
+        function filterSubjects(searchTerm = "") {
+            const filtered = allSubjects.filter(subject => 
+                subject.name.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            renderSubjects(filtered);
+        }
+
+        // Triggered by Class Buttons
+        function selectClass(classId) {
+            currentClass = classId;
+            displayClassId.innerText = classId;
+            headerExam.innerText = currentExam.toUpperCase() + ' ';
+            
+            viewSubject.classList.remove('animate-fade-in-up');
+            void viewSubject.offsetWidth; // trigger reflow
+            viewSubject.classList.add('animate-fade-in-up');
+
+            hideAllViews();
+            viewSubject.classList.remove('hidden');
+            viewSubject.classList.add('flex');
+            
+            subjectSearch.value = '';
+            loadSubjects();
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Back button for class view (School)
+        function goBackToExam() {
+            currentClass = null;
+            hideAllViews();
+            viewExam.classList.remove('hidden');
+            viewExam.classList.add('flex');
+        }
+
+        // Triggered by Back Button in Subject View
+        function goBackToClass() {
+            currentClass = null;
+            subjectSearch.value = ""; // Clear subject search
+            filterSubjects(""); // Reset subject filter
+            if (currentExam === 'school') {
+                hideAllViews();
+                viewClass.classList.remove('hidden');
+                viewClass.classList.add('flex');
+            } else {
+                hideAllViews();
+                viewExam.classList.remove('hidden');
+                viewExam.classList.add('flex');
+            }
+        }
+
+        // Filter Function used by Selection and Search
+        function filterContentGrid(searchTerm = "") {
+            let contentFound = false;
+
+            contentItems.forEach(item => {
+                // Ensure it matches the folder
+                if (item.dataset.class === currentClass && item.dataset.subject === currentSubject && item.dataset.exam === currentExam) {
+                    
+                    // If there's a search term, check the text content
+                    const itemText = item.innerText.toLowerCase();
+                    if (searchTerm === "" || itemText.includes(searchTerm)) {
+                        item.classList.remove('hidden');
+                        item.classList.add('flex');
+                        contentFound = true;
+                    } else {
+                        item.classList.add('hidden');
+                        item.classList.remove('flex');
+                    }
+                } else {
+                    item.classList.add('hidden');
+                    item.classList.remove('flex');
+                }
+            });
+
+            // Handle Empty State Message
+            if (!contentFound) {
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+                
+                if (searchTerm !== "") {
+                    emptyTitle.innerText = "0 MATCHES";
+                    emptyDesc.innerText = "No modules match your search query.";
+                } else {
+                    emptyTitle.innerText = "404 // File Not Found";
+                    emptyDesc.innerText = "Database compilation in progress for this matrix.";
+                }
+            } else {
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+            }
+        }
+
+        // Triggered by Subject Buttons
+        async function selectSubject(subjectId) {
+            currentSubject = subjectId;
+            headerClass.innerText = currentClass;
+            headerSubject.innerText = subjectId.replace('-', ' ').toUpperCase();
+            headerExam.innerText = currentExam.toUpperCase() + ' ';
+            
+            // Clear search when opening a new folder
+            searchInput.value = "";
+            await loadContent();
+
+            viewContent.classList.remove('animate-fade-in-up');
+            void viewContent.offsetWidth; // trigger reflow
+            viewContent.classList.add('animate-fade-in-up');
+
+            hideAllViews();
+            viewContent.classList.remove('hidden');
+            viewContent.classList.add('flex');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        async function loadContent() {
+            const contentData = await loadJSON(`${currentExam}_${currentClass}_${currentSubject}_content.json`);
+            const contentGrid = document.getElementById('content-grid');
+            contentGrid.innerHTML = '';
+            contentData.chapters.forEach(chapter => {
+                const item = document.createElement('div');
+                item.className = 'content-item border-4 border-black bg-white p-6 shadow-block flex flex-col justify-between';
+                item.dataset.class = currentClass;
+                item.dataset.subject = currentSubject;
+                item.dataset.exam = currentExam;
+                let linksHTML = '';
+                if (chapter.links && chapter.links.length > 1) {
+                    linksHTML = '<div class="flex flex-col sm:flex-row gap-3">';
+                    chapter.links.forEach(link => {
+                        linksHTML += `<a href="${link.href}" class="flex-1 text-center px-3 py-3 sm:py-2 bg-black text-white border-2 border-black font-bold uppercase text-xs hover:bg-green-400 hover:text-black transition-colors"><i class="fa-solid ${link.icon} mr-1"></i> ${link.text}</a>`;
+                    });
+                    linksHTML += '</div>';
+                } else if (chapter.links && chapter.links.length === 1) {
+                    linksHTML = `<a href="${chapter.links[0].href}" class="w-full text-center px-3 py-3 bg-black text-white border-2 border-black font-bold uppercase text-xs hover:bg-green-400 hover:text-black transition-colors"><i class="fa-solid ${chapter.links[0].icon} mr-1"></i> ${chapter.links[0].text}</a>`;
+                }
+                item.innerHTML = `
+                    <div>
+                        <span class="bg-black text-cyan-400 px-3 py-1 text-[10px] font-black uppercase tracking-widest inline-block mb-3 border border-black">${chapter.badge || 'Chapter'}</span>
+                        <h3 class="text-xl font-black uppercase leading-tight mb-6">${chapter.title}</h3>
+                        ${chapter.description ? `<p class="text-sm font-semibold text-slate-500 mb-6">${chapter.description}</p>` : ''}
+                    </div>
+                    ${linksHTML}
+                `;
+                contentGrid.appendChild(item);
+            });
+            // Add empty state
+            const emptyState = document.getElementById('empty-state');
+            if (contentData.chapters.length === 0) {
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+            } else {
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+            }
+            contentItems = document.querySelectorAll('.content-item');
+        }
+
+        // Live Search Listener
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase().trim();
+            filterContentGrid(term);
+        });
+
+        // Subject Search Listener
+        subjectSearch.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase().trim();
+            filterSubjects(term);
+        });
+
+        // Triggered by Back Button in Content View
+        function goBackToSubject() {
+            currentSubject = null;
+            searchInput.value = ""; // Clean up
+            subjectSearch.value = ""; // Clear subject search
+            filterSubjects(""); // Reset subject filter
+            hideAllViews();
+            viewSubject.classList.remove('hidden');
+            viewSubject.classList.add('flex');
+        }
+
+        // Mobile Menu Logic
         document.addEventListener('DOMContentLoaded', () => {
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
