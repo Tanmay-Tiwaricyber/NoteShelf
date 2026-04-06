@@ -1,0 +1,25 @@
+{
+  "chapters": [
+    {
+      "title": "Constitution",
+      "badge": "Article 1",
+      "links": [
+        {"text": "Preamble", "href": "CUET/Polity/Constitution.pdf", "icon": "fa-gavel"}
+      ]
+    },
+    {
+      "title": "Government",
+      "badge": "Article 2",
+      "links": [
+        {"text": "Structure", "href": "CUET/Polity/Government.pdf", "icon": "fa-gavel"}
+      ]
+    },
+    {
+      "title": "Rights",
+      "badge": "Article 3",
+      "links": [
+        {"text": "Fundamental", "href": "CUET/Polity/Rights.pdf", "icon": "fa-gavel"}
+      ]
+    }
+  ]
+}

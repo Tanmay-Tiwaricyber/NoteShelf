@@ -1,0 +1,48 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Physics Basics",
+                         "badge":  "Topic 1",
+                         "links":  [
+                                       {
+                                           "text":  "Notes",
+                                           "href":  "NDA/Class 11th/Science/Physics.pdf",
+                                           "icon":  "fa-atom"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Chemistry Basics",
+                         "badge":  "Topic 2",
+                         "links":  [
+                                       {
+                                           "text":  "Notes",
+                                           "href":  "NDA/Class 11th/Science/Chemistry.pdf",
+                                           "icon":  "fa-flask"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Biology Basics",
+                         "badge":  "Topic 3",
+                         "links":  [
+                                       {
+                                           "text":  "Notes",
+                                           "href":  "NDA/Class 11th/Science/Biology.pdf",
+                                           "icon":  "fa-dna"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "NDA/Class 11th/General Science/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

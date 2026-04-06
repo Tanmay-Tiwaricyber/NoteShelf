@@ -1,0 +1,48 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Ancient History",
+                         "badge":  "Era 1",
+                         "links":  [
+                                       {
+                                           "text":  "Timeline",
+                                           "href":  "NDA/Class 11th/History/Ancient.pdf",
+                                           "icon":  "fa-scroll"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Medieval History",
+                         "badge":  "Era 2",
+                         "links":  [
+                                       {
+                                           "text":  "Timeline",
+                                           "href":  "NDA/Class 11th/History/Medieval.pdf",
+                                           "icon":  "fa-scroll"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Modern History",
+                         "badge":  "Era 3",
+                         "links":  [
+                                       {
+                                           "text":  "Timeline",
+                                           "href":  "NDA/Class 11th/History/Modern.pdf",
+                                           "icon":  "fa-scroll"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "NDA/Class 11th/History/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

@@ -1,0 +1,37 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Units and Measurements",
+                         "badge":  "Chapter 1",
+                         "links":  [
+                                       {
+                                           "text":  "Download Notes",
+                                           "href":  "Mindmap/PHY/Units \u0026 Measurements _ Mind Maps __ (Arjuna JEE 2023).pdf",
+                                           "icon":  "fa-download"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Motion in a Straight Line",
+                         "badge":  "Chapter 2",
+                         "links":  [
+                                       {
+                                           "text":  "Download Notes",
+                                           "href":  "path/to/download/file3.pdf",
+                                           "icon":  "fa-download"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "Physics/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

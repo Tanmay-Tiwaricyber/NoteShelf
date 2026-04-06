@@ -1,0 +1,48 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Physics Basics",
+                         "badge":  "Topic 1",
+                         "links":  [
+                                       {
+                                           "text":  "Notes",
+                                           "href":  "CUET/Class 11th/General Science/Physics.pdf",
+                                           "icon":  "fa-atom"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Chemistry Basics",
+                         "badge":  "Topic 2",
+                         "links":  [
+                                       {
+                                           "text":  "Notes",
+                                           "href":  "CUET/Class 11th/General Science/Chemistry.pdf",
+                                           "icon":  "fa-flask"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Biology Basics",
+                         "badge":  "Topic 3",
+                         "links":  [
+                                       {
+                                           "text":  "Notes",
+                                           "href":  "CUET/Class 11th/General Science/Biology.pdf",
+                                           "icon":  "fa-dna"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "CUET/Class 11th/General Science/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

@@ -1,0 +1,48 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "World Geography",
+                         "badge":  "Chapter 1",
+                         "links":  [
+                                       {
+                                           "text":  "Maps",
+                                           "href":  "CUET/Class 11th/Geography/World.pdf",
+                                           "icon":  "fa-globe"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Indian Geography",
+                         "badge":  "Chapter 2",
+                         "links":  [
+                                       {
+                                           "text":  "Maps",
+                                           "href":  "CUET/Class 11th/Geography/India.pdf",
+                                           "icon":  "fa-globe"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Climate",
+                         "badge":  "Chapter 3",
+                         "links":  [
+                                       {
+                                           "text":  "Notes",
+                                           "href":  "CUET/Class 11th/Geography/Climate.pdf",
+                                           "icon":  "fa-cloud"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "CUET/Class 11th/Geography/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

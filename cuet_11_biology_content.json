@@ -1,0 +1,48 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Cell Biology",
+                         "badge":  "Unit 1",
+                         "links":  [
+                                       {
+                                           "text":  "Structure",
+                                           "href":  "CUET/Class 11th/Biology/Cell.pdf",
+                                           "icon":  "fa-dna"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Genetics",
+                         "badge":  "Unit 2",
+                         "links":  [
+                                       {
+                                           "text":  "DNA",
+                                           "href":  "CUET/Class 11th/Biology/Genetics.pdf",
+                                           "icon":  "fa-dna"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Ecology",
+                         "badge":  "Unit 3",
+                         "links":  [
+                                       {
+                                           "text":  "Environment",
+                                           "href":  "CUET/Class 11th/Biology/Ecology.pdf",
+                                           "icon":  "fa-leaf"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "CUET/Class 11th/Biology/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

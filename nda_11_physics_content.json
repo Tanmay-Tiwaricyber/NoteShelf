@@ -1,0 +1,48 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Mechanics",
+                         "badge":  "Topic 1",
+                         "links":  [
+                                       {
+                                           "text":  "Laws",
+                                           "href":  "NDA/Class 11th/Physics/Mechanics.pdf",
+                                           "icon":  "fa-atom"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Electricity",
+                         "badge":  "Topic 2",
+                         "links":  [
+                                       {
+                                           "text":  "Circuits",
+                                           "href":  "NDA/Class 11th/Physics/Electricity.pdf",
+                                           "icon":  "fa-atom"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Optics",
+                         "badge":  "Topic 3",
+                         "links":  [
+                                       {
+                                           "text":  "Light",
+                                           "href":  "NDA/Class 11th/Physics/Optics.pdf",
+                                           "icon":  "fa-atom"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "NDA/Class 11th/Physics/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

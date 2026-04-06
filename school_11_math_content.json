@@ -1,0 +1,31 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Relations and Functions",
+                         "badge":  "Chapter 1",
+                         "links":  [
+                                       {
+                                           "text":  "Download",
+                                           "href":  "Maths/Relations and Functions.pdf",
+                                           "icon":  "fa-download"
+                                       },
+                                       {
+                                           "text":  "PYQs",
+                                           "href":  "Maths/Relations and Functions-pyq.pdf",
+                                           "icon":  "fa-file-lines"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "Maths/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

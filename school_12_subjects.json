@@ -1,0 +1,7 @@
+{
+  "subjects": [
+    {"id": "math", "name": "Math", "icon": "fa-calculator", "color": "text-cyan-400"},
+    {"id": "physics", "name": "Physics", "icon": "fa-atom", "color": "text-purple-500"},
+    {"id": "chemistry", "name": "Chemistry", "icon": "fa-flask", "color": "text-green-500"}
+  ]
+}

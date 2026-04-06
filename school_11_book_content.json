@@ -1,0 +1,27 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Arihant Physics Handbook",
+                         "badge":  "Publisher: Arihant",
+                         "description":  "Class 11 reference material.",
+                         "links":  [
+                                       {
+                                           "text":  "Access Book",
+                                           "href":  "Book/Phy/arihant physics handbook.pdf",
+                                           "icon":  "fa-book-open"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "Books/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

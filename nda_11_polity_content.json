@@ -1,0 +1,48 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Constitution",
+                         "badge":  "Article 1",
+                         "links":  [
+                                       {
+                                           "text":  "Preamble",
+                                           "href":  "NDA/Class 11th/Polity/Constitution.pdf",
+                                           "icon":  "fa-gavel"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Government",
+                         "badge":  "Article 2",
+                         "links":  [
+                                       {
+                                           "text":  "Structure",
+                                           "href":  "NDA/Class 11th/Polity/Government.pdf",
+                                           "icon":  "fa-gavel"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Rights",
+                         "badge":  "Article 3",
+                         "links":  [
+                                       {
+                                           "text":  "Fundamental",
+                                           "href":  "NDA/Class 11th/Polity/Rights.pdf",
+                                           "icon":  "fa-gavel"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "NDA/Class 11th/Polity/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

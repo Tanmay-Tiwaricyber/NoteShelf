@@ -1,0 +1,26 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Current Affairs",
+                         "badge":  "Chapter 1",
+                         "links":  [
+                                       {
+                                           "text":  "Download",
+                                           "href":  "CUET/Class 11th/Current Affairs/some.pdf",
+                                           "icon":  "fa-download"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "CUET/Class 11th/Current Affairs/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

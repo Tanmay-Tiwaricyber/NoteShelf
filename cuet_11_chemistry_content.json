@@ -1,0 +1,48 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Organic Chemistry",
+                         "badge":  "Branch 1",
+                         "links":  [
+                                       {
+                                           "text":  "Compounds",
+                                           "href":  "CUET/Class 11th/Chemistry/Organic.pdf",
+                                           "icon":  "fa-flask"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Inorganic Chemistry",
+                         "badge":  "Branch 2",
+                         "links":  [
+                                       {
+                                           "text":  "Elements",
+                                           "href":  "CUET/Class 11th/Chemistry/Inorganic.pdf",
+                                           "icon":  "fa-flask"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Physical Chemistry",
+                         "badge":  "Branch 3",
+                         "links":  [
+                                       {
+                                           "text":  "Laws",
+                                           "href":  "CUET/Class 11th/Chemistry/Physical.pdf",
+                                           "icon":  "fa-flask"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "CUET/Class 11th/Chemistry/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

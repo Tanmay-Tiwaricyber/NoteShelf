@@ -1,0 +1,37 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Relation Function",
+                         "badge":  "Chapter 1",
+                         "links":  [
+                                       {
+                                           "text":  "Mind Map",
+                                           "href":  "Maths/mind-maps-12th/relation and function mind map.pdf",
+                                           "icon":  "fa-sitemap"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Inverse Trigonometric Functions",
+                         "badge":  "Chapter 2",
+                         "links":  [
+                                       {
+                                           "text":  "Mind Map",
+                                           "href":  "Maths/mind-maps-12th/ITF .pdf",
+                                           "icon":  "fa-sitemap"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "Maths/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

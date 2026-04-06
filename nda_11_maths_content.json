@@ -1,0 +1,48 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Algebra",
+                         "badge":  "Topic 1",
+                         "links":  [
+                                       {
+                                           "text":  "Formulas",
+                                           "href":  "NDA/Class 11th/Class 11th/Maths/Algebra.pdf",
+                                           "icon":  "fa-calculator"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Calculus",
+                         "badge":  "Topic 2",
+                         "links":  [
+                                       {
+                                           "text":  "Basics",
+                                           "href":  "NDA/Class 11th/Class 11th/Maths/Calculus.pdf",
+                                           "icon":  "fa-calculator"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Statistics",
+                         "badge":  "Topic 3",
+                         "links":  [
+                                       {
+                                           "text":  "Data",
+                                           "href":  "NDA/Class 11th/Class 11th/Maths/Stats.pdf",
+                                           "icon":  "fa-chart-bar"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "NDA/Class 11th/Maths/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

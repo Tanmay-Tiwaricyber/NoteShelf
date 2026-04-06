@@ -1,0 +1,14 @@
+{
+  "subjects": [
+    {"id": "current-affairs", "name": "Current Affairs", "icon": "fa-newspaper", "color": "text-cyan-400"},
+    {"id": "english", "name": "English", "icon": "fa-language", "color": "text-purple-500"},
+    {"id": "general-science", "name": "General Science", "icon": "fa-microscope", "color": "text-green-500"},
+    {"id": "geography", "name": "Geography", "icon": "fa-globe", "color": "text-pink-500"},
+    {"id": "history", "name": "History", "icon": "fa-scroll", "color": "text-yellow-500"},
+    {"id": "maths", "name": "Maths", "icon": "fa-calculator", "color": "text-blue-500"},
+    {"id": "chemistry", "name": "Chemistry", "icon": "fa-flask", "color": "text-green-500"},
+    {"id": "physics", "name": "Physics", "icon": "fa-atom", "color": "text-purple-500"},
+    {"id": "biology", "name": "Biology", "icon": "fa-dna", "color": "text-pink-500"},
+    {"id": "polity", "name": "Polity", "icon": "fa-gavel", "color": "text-red-500"}
+  ]
+}

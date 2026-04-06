@@ -1,0 +1,48 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Reading Comprehension",
+                         "badge":  "Unit 1",
+                         "links":  [
+                                       {
+                                           "text":  "Practice",
+                                           "href":  "CUET/Class 11th/English/Reading.pdf",
+                                           "icon":  "fa-book"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Vocabulary",
+                         "badge":  "Unit 2",
+                         "links":  [
+                                       {
+                                           "text":  "Words",
+                                           "href":  "CUET/Class 11th/English/Vocab.pdf",
+                                           "icon":  "fa-language"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Grammar",
+                         "badge":  "Unit 3",
+                         "links":  [
+                                       {
+                                           "text":  "Rules",
+                                           "href":  "CUET/Class 11th/English/Grammar.pdf",
+                                           "icon":  "fa-pen"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "CUET/Class 11th/English/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

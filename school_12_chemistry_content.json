@@ -1,0 +1,26 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "The Solid State",
+                         "badge":  "Chapter 1",
+                         "links":  [
+                                       {
+                                           "text":  "Mind Map",
+                                           "href":  "Chemistry/mind-map-12/Solid_State_Mind_Maps65dd1eb194c6fc00185d7e66.pdf",
+                                           "icon":  "fa-sitemap"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "Chemistry/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}

@@ -1,0 +1,48 @@
+{
+    "chapters":  [
+                     {
+                         "title":  "Some Basic Concepts of Chemistry",
+                         "badge":  "Chapter 1",
+                         "links":  [
+                                       {
+                                           "text":  "Notes",
+                                           "href":  "Chemistry/Ch1.pdf",
+                                           "icon":  "fa-download"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Structure of Atom",
+                         "badge":  "Chapter 2",
+                         "links":  [
+                                       {
+                                           "text":  "Notes",
+                                           "href":  "Chemistry/Ch2.pdf",
+                                           "icon":  "fa-download"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Classification of Elements",
+                         "badge":  "Chapter 3",
+                         "links":  [
+                                       {
+                                           "text":  "Notes",
+                                           "href":  "Chemistry/Ch3.pdf",
+                                           "icon":  "fa-download"
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Extra Notes",
+                         "links":  [
+                                       {
+                                           "icon":  "fa-download",
+                                           "href":  "Chemistry/extra.pdf",
+                                           "text":  "Download"
+                                       }
+                                   ],
+                         "badge":  "Bonus"
+                     }
+                 ]
+}
